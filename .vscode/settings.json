@@ -2,11 +2,14 @@
     "cSpell.words": [
         "chatbot",
         "chatbots",
+        "chatml",
         "DGGML",
+        "dispreferred",
         "dmon",
         "dotenv",
         "dport",
         "fewshot",
+        "finetuning",
         "firewalld",
         "fullchain",
         "ggml",
@@ -27,6 +30,7 @@
         "pgvector",
         "privkey",
         "qwen",
+        "RLHF",
         "worktree"
     ]
 }

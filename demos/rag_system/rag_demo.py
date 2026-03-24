@@ -5,9 +5,9 @@ This demo shows how to build a Retrieval-Augmented Generation (RAG) pipeline:
 2. **Query** - retrieve relevant chunks and pass them as context to an LLM
 
 Architecture:
-                  Source → Ingestor → Embeddings → PGVector
-                                                      ↓
-    Question → Retriever → Context → Prompt → LLM → Answer
+    Source → Ingestor → Embeddings → PGVector
+                                        ↓
+                          Question → Retriever → Context → Prompt → LLM → Answer
 
 Usage:
     python demos/rag_system/rag_demo.py
@@ -227,28 +227,6 @@ def ingest_documents(topic: str, ingestor_name: str) -> str:
     )
 
 
-def clear_collection() -> str:
-    """Delete all documents from the vector store collection."""
-
-    global vector_store
-
-    try:
-        vector_store.delete_collection()
-
-        # Re-initialise so the store is ready for new ingestions
-        vector_store = PGVector(
-            embeddings=embeddings,
-            collection_name=collection_name,
-            connection=db_engine,
-            use_jsonb=True,
-        )
-
-        return "Collection cleared. Ready for new ingestion."
-
-    except Exception as e:
-        return f"Error clearing collection: {e}"
-
-
 def query_rag(question: str, backend: str, k: int) -> tuple[str, str]:
     """Retrieve relevant chunks and generate a grounded answer."""
 
@@ -283,6 +261,28 @@ def query_rag(question: str, backend: str, k: int) -> tuple[str, str]:
     sources_text = _format_sources(retrieved_docs)
 
     return answer, sources_text
+
+
+def clear_collection() -> str:
+    """Delete all documents from the vector store collection."""
+
+    global vector_store
+
+    try:
+        vector_store.delete_collection()
+
+        # Re-initialise so the store is ready for new ingestions
+        vector_store = PGVector(
+            embeddings=embeddings,
+            collection_name=collection_name,
+            connection=db_engine,
+            use_jsonb=True,
+        )
+
+        return "Collection cleared. Ready for new ingestion."
+
+    except Exception as e:
+        return f"Error clearing collection: {e}"
 
 
 # ---------------------------------------------------------------------------
