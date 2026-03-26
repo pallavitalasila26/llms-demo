@@ -1,3 +1,7 @@
 wikipedia
 peft
 trl
+evaluate
+bert-score
+absl-py
+rouge-score

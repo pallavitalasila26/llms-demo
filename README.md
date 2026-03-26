@@ -2,8 +2,8 @@
 
 [![Build and Deploy Documentation](https://github.com/gperdrizet/llms-demo/actions/workflows/docs.yml/badge.svg)](https://github.com/gperdrizet/llms-demo/actions/workflows/docs.yml)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-0.3-1C3C3C?logo=langchain&logoColor=white)
-![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-FFD21E?logo=huggingface&logoColor=black)
+![LangChain](https://img.shields.io/badge/LangChain-1.2-1C3C3C?logo=langchain&logoColor=white)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-FF6B00?logo=huggingface&logoColor=white)
 ![Gradio](https://img.shields.io/badge/Gradio-UI-FF7C00?logo=gradio&logoColor=white)
 ![Ollama](https://img.shields.io/badge/Ollama-local%20LLM-black?logo=ollama&logoColor=white)
 ![llama.cpp](https://img.shields.io/badge/llama.cpp-GGUF-green)
@@ -25,10 +25,9 @@ This repository provides hands-on examples and learning resources for working wi
 
 ### Resources included
 
-- **7 demos**: chatbots, LangChain patterns, and a RAG knowledge system
-- **5 slide decks**: covering deployment, prompting, and LangChain
-- **5 activities**: hands-on exercises building on each demo
-- **3 open-source models**: 20B, 35B, and 120B parameter LLMs
+- **9 demos**: chatbots, LangChain patterns, agents, RAG knowledge systems, fine-tuning & evaluation
+- **8 slide decks**: covering deployment, prompting, LangChain, fine-tuning, and evaluation
+- **7 activities**: hands-on exercises building on each demo
 
 ---
 
@@ -66,12 +65,12 @@ The documentation covers:
 
 ### 3. What happens during container startup
 
-The dev container is based on the `gperdrizet/deeplearning-gpu` image (NVIDIA GPU-enabled). On first creation, the `postCreateCommand` runs automatically and does the following:
+The dev container is based on the `gperdrizet/llms-gpu` image (NVIDIA GPU-enabled). On first creation, the `postCreateCommand` runs automatically and does the following:
 
 | Step | What it does |
 |------|-------------|
 | `mkdir -p models/hugging_face && mkdir -p models/ollama` | Creates local directories for model storage |
-| `pip install -r requirements.txt` | Installs Python dependencies: **gradio**, **huggingface-hub**, **langchain-ollama**, **openai**, **python-dotenv**, **torch**, **transformers** |
+| `pip install -r requirements.txt` | Installs Python dependencies: **bert-score**, **evaluate**, **gradio**, **huggingface-hub**, **langchain-ollama**, **openai**, **peft**, **python-dotenv**, **trl**, **torch**, **transformers** |
 | `bash .devcontainer/install_ollama.sh` | Downloads and installs the Ollama CLI |
 
 The container also pre-configures the following:

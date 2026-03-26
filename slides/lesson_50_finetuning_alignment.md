@@ -185,9 +185,9 @@ Famous instruction-tuning datasets: **Alpaca** (52k examples), **FLAN** (1,800+ 
 
 ---
 
-## LoRA: How training works
+## LoRA: how training works
 
-**Step 1 - Freeze the base model.** All original weights W are locked — no gradients flow through them.
+**Step 1 - Freeze the base model.** All original weights W are locked - no gradients flow through them.
 
 **Step 2 - Inject adapter pairs.** For each target layer (usually the attention projection matrices), add two small trainable matrices A and B initialized so B·A = 0 at the start of training.
 
@@ -235,7 +235,7 @@ The bottleneck rank `r` forces adaptation through a low-dimensional subspace - t
 
 ---
 
-## QLoRA: Quantization + LoRA
+## QLoRA: quantization + LoRA
 
 **QLoRA** (Dettmers et al., 2023) combines LoRA with 4-bit quantization of the base model.
 
@@ -343,7 +343,7 @@ This is how **InstructGPT** (the model behind early ChatGPT) was built - describ
 
 ---
 
-## Stage 1: Supervised fine-tuning (SFT)
+## Stage 1: supervised fine-tuning (SFT)
 
 **Goal:** Give the base model a foundation in instruction-following before RL training.
 
@@ -360,7 +360,7 @@ This is how **InstructGPT** (the model behind early ChatGPT) was built - describ
 
 ---
 
-## Stage 2: Reward model
+## Stage 2: reward model
 
 **Goal:** Learn a function that scores responses by how much humans prefer them.
 
@@ -385,7 +385,7 @@ The reward model is itself an LLM with a scalar output head - it outputs a singl
 **Goal:** Train the policy (the LLM that talks to users) to maximize the reward model's score.
 
 - Generate responses, score with the reward model, update weights to increase the score
-- A **KL divergence penalty** keeps the policy close to the SFT model, preventing "reward hacking" — finding responses that fool the reward model without being genuinely good
+- A **KL divergence penalty** keeps the policy close to the SFT model, preventing "reward hacking" - finding responses that fool the reward model without being genuinely good
 
 ```
 Objective = E[RM(response)] - β × KL(policy || SFT_model)
@@ -396,7 +396,7 @@ Objective = E[RM(response)] - β × KL(policy || SFT_model)
 
 ## DPO: Direct Preference Optimization
 
-**DPO** (Rafailov et al., 2023) achieves similar alignment to RLHF without a separate reward model or PPO.
+**DPO** ([Rafailov et al., 2023](https://arxiv.org/abs/2305.18290)) achieves similar alignment to RLHF without a separate reward model or PPO.
 
 **Key insight:** The optimal policy under RLHF has a closed form - you can derive it from preference data directly.
 
@@ -414,7 +414,7 @@ Objective = E[RM(response)] - β × KL(policy || SFT_model)
 
 ## Constitutional AI
 
-**Constitutional AI** (Anthropic, 2022) extends RLHF with an AI-generated feedback loop.
+**Constitutional AI** ([Anthropic, 2022](https://arxiv.org/pdf/2212.08073)) extends RLHF with an AI-generated feedback loop.
 
 **The idea:**
 
@@ -440,9 +440,16 @@ When to fine-tune, and what tools to use
 | Scenario | Recommendation | Reason |
 |---|---|---|
 | **Recent or frequently updated facts** | RAG | Fine-tuning can't keep up with changing data |
-| **Large private knowledge base** | RAG | More scalable than encoding into weights |
+| **Private knowledge base** | RAG | More scalable |
 | **Consistent output format/style** | Fine-tune | Format is a learned behavior, not a retrieval problem |
 | **Domain-specific vocabulary and conventions** | Fine-tune | Terminology shapes how the model reasons |
+
+---
+
+## Fine-tune or RAG?
+
+| Scenario | Recommendation | Reason |
+|---|---|---|
 | **Reducing hallucination on known content** | RAG | Grounding with retrieved text is more reliable |
 | **Faster inference (no retrieval step)** | Fine-tune | Weights hold knowledge; no retrieval at runtime |
 | **Both facts and behavior** | Both | Fine-tune for behavior; RAG for knowledge |
@@ -484,6 +491,19 @@ When to fine-tune, and what tools to use
 - [Training language models to follow instructions with human feedback (Ouyang et al., 2022)](https://arxiv.org/abs/2203.02155)
 - [Direct Preference Optimization (Rafailov et al., 2023)](https://arxiv.org/abs/2305.18290)
 - [Constitutional AI (Bai et al., 2022)](https://arxiv.org/abs/2212.08073)
+
+---
+
+## Additional resources cont'd
+
+**Other papers/topics that came up in discussion...**
+- [Self-rewarding language models (Yuan, et al,. 2024), Meta, NYU](https://arxiv.org/abs/2401.10020)
+- [Watermarking (Sander et al., 2024, Meta)](https://arxiv.org/pdf/2402.14904)
+- [Best practices & lessons learned on synthetic data (Liu et al., 2024, Google, Stanford)](https://arxiv.org/abs/2404.07503)
+
+---
+
+## Additional resources cont'd
 
 **Hugging Face:**
 - [PEFT documentation](https://huggingface.co/docs/peft)

@@ -124,3 +124,64 @@ Add a new document source to the RAG demo by implementing the `BaseIngestor` int
 
 **Location:** `activities/activity_5_rag_sources.md`
 
+
+## Activity 6: LoRA fine-tuning experiment
+
+Fine-tune a small language model on a custom instruction dataset using LoRA, then compare its behaviour against the original base model.
+
+**Duration:** 60-90 minutes
+
+**Skills practiced:**
+- Loading and prompting base models directly with `transformers`
+- Building a small SFT dataset formatted as ChatML
+- Configuring and attaching a LoRA adapter with `peft`
+- Training with `SFTTrainer` from `trl`
+- Comparing base vs. fine-tuned outputs and measuring adapter size
+
+**Prerequisites:**
+- Completed Activities 1-5
+- Python programming experience
+- Understanding of Lesson 50 (Fine-tuning, RLHF, and model alignment)
+- Familiarity with the fine-tuning demo (`demos/finetuning/finetuning_demo.py`)
+
+**What you'll do:**
+- Run test prompts through the base model to record a baseline
+- Write 10-20 `(instruction, response)` pairs in a consistent style of your choosing
+- Format the dataset as ChatML and load it with HuggingFace `datasets`
+- Attach a LoRA adapter (`r=8`, targeting `q_proj`/`v_proj`) and train for ~5 epochs
+- Compare fine-tuned responses to the baseline using the same test prompts
+- Save the adapter, measure its size, and reload it via `PeftModel.from_pretrained()`
+
+**Extension challenges:** rank sweep (r=8/16/32), overfitting demonstration (20 epochs), expanding target modules, and `merge_and_unload()` to export a standalone checkpoint.
+
+**Location:** `activities/activity_6_finetuning.md`
+
+## Activity 7: Evaluating LLM outputs
+
+Measure LLM output quality using automated text metrics and an LLM-as-judge rubric, then interpret the results critically.
+
+**Duration:** 45-60 minutes
+
+**Skills practiced:**
+- Computing ROUGE-1/2/L, BLEU, and BERTScore with HuggingFace `evaluate`
+- Interpreting metric scores and understanding their limitations
+- Designing a threshold-based quality gate
+- Writing a structured LLM-as-judge rubric prompt
+- Parsing structured JSON output from an LLM
+- Identifying verbosity bias and prompt sensitivity in judge systems
+
+**Prerequisites:**
+- Completed Activities 1-6
+- Python programming experience
+- Understanding of Lesson 51 (Benchmarking and evaluating LLMs)
+- Familiarity with the evaluation demo (`demos/evaluation/evaluation_demo.py`)
+
+**What you'll do:**
+- Compute metrics on three text pairs (exact match, paraphrase, factual error) and compare results
+- Build a quality gate function using ROUGE and BERTScore thresholds
+- Implement an LLM-as-judge function that returns rubric scores as parsed JSON
+- Evaluate three candidate answers across factual accuracy, relevance, and completeness
+- Detect verbosity bias by comparing concise vs. padded answers
+
+**Location:** `activities/activity_7_evaluation.md`
+

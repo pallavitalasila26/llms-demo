@@ -134,7 +134,7 @@ Just adding this phrase triggers step-by-step reasoning:
 
 ---
 
-## Few-shot CoT: Teaching by example
+## Few-shot CoT: teaching by example
 
 Show the model how to break down problems:
 
@@ -171,7 +171,7 @@ A: [model continues the pattern]
 
 ---
 
-# ReAct: Reasoning + Acting
+# ReAct: reasoning + acting
 
 Combining reasoning with tool use
 
@@ -236,7 +236,7 @@ The model decides which tool to use based on the task.
 
 ---
 
-## ReAct example: Multi-tool problem
+## ReAct example: multi-tool problem
 
 ```
 Question: How many days until Christmas if today is March 12, 2026?
@@ -350,7 +350,7 @@ Evaluate each partial solution and prune poor paths.
 
 ---
 
-## ToT example: Planning
+## ToT example: planning
 
 **Problem:** Plan a 3-day trip to New York on a $500 budget.
 
@@ -503,3 +503,4 @@ Key takeaways from today
 - [Chain-of-Thought paper](https://arxiv.org/abs/2201.11903) (Wei et al., 2022)
 - [ReAct paper](https://arxiv.org/abs/2210.03629) (Yao et al., 2022)
 - [Tree of Thoughts paper](https://arxiv.org/abs/2305.10601) (Yao et al., 2023)
+- [Meta prompting (new strategy from Stanford & OpenAI)](https://arxiv.org/abs/2401.12954) (Suzgun et al., 2024)

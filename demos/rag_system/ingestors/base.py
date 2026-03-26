@@ -21,7 +21,7 @@ class BaseIngestor(ABC):
         """Load and split documents from the given source string.
 
         Args:
-            source: Source identifier — could be a topic name, file path,
+            source: Source identifier - could be a topic name, file path,
                     URL, etc. depending on the ingestor implementation.
 
         Returns:

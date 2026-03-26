@@ -1,10 +1,15 @@
 {
     "cSpell.words": [
+        "BERTSCORE",
+        "bigram",
+        "bigrams",
         "chatbot",
         "chatbots",
         "chatml",
+        "coreference",
         "DGGML",
         "dispreferred",
+        "distilbert",
         "dmon",
         "dotenv",
         "dport",
@@ -14,13 +19,17 @@
         "fullchain",
         "ggml",
         "GGUF",
+        "Goodhart's",
         "httplib",
         "Ingestor",
         "ingestors",
+        "jailbreaking",
         "journalctl",
         "langchain",
         "letsencrypt",
         "llamacpp",
+        "LMSYS",
+        "MMLU",
         "mmproj",
         "mxfp",
         "mydb",
@@ -31,6 +40,10 @@
         "privkey",
         "qwen",
         "RLHF",
-        "worktree"
+        "Unigram",
+        "unigrams",
+        "worktree",
+        "Zhang",
+        "Zheng"
     ]
 }

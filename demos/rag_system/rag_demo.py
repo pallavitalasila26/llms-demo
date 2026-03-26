@@ -298,8 +298,8 @@ with gr.Blocks(title="RAG Knowledge System") as demo:
     grounded in the ingested content.
 
     **How it works:**
-    1. **Ingest** — search Wikipedia by topic, chunk the articles, embed and store them
-    2. **Query** — your question retrieves the most relevant chunks, which the LLM uses to answer
+    1. **Ingest** - search Wikipedia by topic, chunk the articles, embed and store them
+    2. **Query** - your question retrieves the most relevant chunks, which the LLM uses to answer
     """)
 
     with gr.Tabs():
@@ -310,7 +310,7 @@ with gr.Blocks(title="RAG Knowledge System") as demo:
         with gr.Tab("1. Ingest documents"):
             ingest_instructions = gr.Markdown("""
             Type a Wikipedia topic to fetch and store articles in the knowledge base.
-            You can ingest multiple topics — they accumulate in the same collection.
+            You can ingest multiple topics - they accumulate in the same collection.
             """)
 
             with gr.Row():

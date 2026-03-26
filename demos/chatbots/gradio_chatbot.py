@@ -82,7 +82,7 @@ def respond(message, history, backend, system_prompt):
         Response string from the model (or error message if backend unavailable)
     '''
     
-    # --- Ollama Backend ---
+    # --- Ollama backend ---
     if backend == 'Ollama':
         try:
             # Build message list in LangChain format (SystemMessage, HumanMessage, AIMessage)
@@ -115,7 +115,7 @@ def respond(message, history, backend, system_prompt):
             )
             return error_msg
     
-    # --- llama.cpp Backend ---
+    # --- llama.cpp backend ---
     else:
         try:
             # Build message list in OpenAI format (dict with 'role' and 'content')
