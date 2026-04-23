@@ -339,11 +339,11 @@ Examples:
 | Benchmark | Tests | Format | Metric |
 |-----------|-------|--------|--------|
 | **HellaSwag** | Commonsense reasoning - pick the most plausible sentence completion | 4-choice | Accuracy |
-| **GSM8K** | Grade-school math word problems requiring multi-step arithmetic | Free-form | % correct |
+| **GSM8K** | Grade-school math word problems requiring multi-step arithmetic | Free | % correct |
 | **HumanEval** | Python function generation from docstrings | Code | pass@k |
-| **TruthfulQA** | Truthful answers to questions humans often get wrong | Free-form | % truthful |
-| **MATH** | Competition-level mathematics | Free-form | % correct |
-| **GAIA** | Real-world assistant tasks requiring multi-step reasoning, web search, and tool use | Agentic | % correct |
+| **TruthfulQA** | Truthful answers to hard questions | Free | % truthful |
+| **MATH** | Competition-level mathematics | Free | % correct |
+| **GAIA** | Tasks requiring multi-step tool use | Agentic | % correct |
 
 ---
 
@@ -359,8 +359,7 @@ Examples:
 
 **[LMSYS Chatbot Arena](https://lmarena.ai/)**
 - Humans compare two anonymous models side by side
-- Captures user preference, not just benchmark performance
-- Often diverges from leaderboard rankings
+- Captures user preference - often diverges from leaderboard rankings
 
 ---
 
@@ -556,20 +555,23 @@ Automated metrics work best when a **reference answer exists**. For open-ended g
 
 ---
 
-## Additional resources
+## Additional resources: papers
 
-**Papers:**
 - [ROUGE: A Package for Automatic Evaluation of Summaries](https://aclanthology.org/W04-1013/) - Lin (2004)
 - [Measuring Massive Multitask Language Understanding](https://arxiv.org/abs/2009.03300) - Hendrycks et al. (2021)
 - [BERTScore: Evaluating Text Generation with BERT](https://arxiv.org/abs/1904.09675) - Zhang et al. (2020)
 - [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685) - Zheng et al. (2023)
 - [G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment](https://arxiv.org/abs/2303.16634) - Liu et al. (2023)
+---
 
-**Tools and leaderboards:**
+## Additional resources: tools & leaderboards
 - [HuggingFace evaluate](https://huggingface.co/docs/evaluate) - unified metrics API
 - [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) - benchmark runner
-- [Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)
-- [LMSYS Chatbot Arena](https://chat.lmsys.org/)
+- [Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) - Open leaderboard running a wide set of benchmarks on user submitted models (archived)
+- [MMLU-Pro Leaderboard](https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro) - TIGER Lab, updated MMLU benchmark leaderboard on Hugging Face
+- [LMSYS Chatbot Arena](https://chat.lmsys.org/) - Head to head evaluation of model outputs by humans
+- [Vending Machine Bench](https://andonlabs.com/evals/vending-bench-2) - Started as maybe a meme, but has become more that that!
+- [2026 ARC Prize competition](https://arcprize.org/competitions/2026) - frontier agent evaluation competition (on Kaggle)
 - [RAGAS](https://docs.ragas.io/) - RAG-specific evaluation
 
 ---
